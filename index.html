@@ -162,6 +162,56 @@
     }
 
     .hidden { display:none }
+
+    /* --- Responsive styles --- */
+    @media screen and (max-width: 600px) {
+      .card {
+        width: 98vw;
+        max-width: 98vw;
+        max-height: 97vh;
+        padding: 12px 4vw;
+        font-size: 15px;
+      }
+      h1 { font-size: 18px; }
+      #eid { font-size: 16px; padding: 10px;}
+      .sidebar {
+        width: 75vw;
+        min-width: 170px;
+        left: -75vw;
+        padding: 12px 10px;
+      }
+      .sidebar.active { left: 0; }
+      #menuBtn {
+        left: 4vw;
+        top: 7px;
+        font-size: 20px;
+        padding: 7px 10px;
+      }
+      .row button, .row a.btn {
+        min-width: 90px;
+        padding: 9px;
+        font-size: 13px;
+      }
+      .row { gap: 7px; }
+      .socials a { font-size: 30px;}
+    }
+
+    @media screen and (max-width: 400px) {
+      .card {
+        padding: 8px 2vw;
+      }
+      #menuBtn {
+        left: 2vw;
+        padding: 6px 7px;
+      }
+    }
+
+    @media (max-height: 500px) {
+      .card {
+        max-height: 95vh;
+        padding: 10px 2vw;
+      }
+    }
   </style>
 </head>
 <body>
