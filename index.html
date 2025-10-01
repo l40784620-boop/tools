@@ -48,6 +48,7 @@
       transition: left .3s ease;
       padding: 20px;
       z-index: 1000;
+      box-sizing: border-box;
     }
     .sidebar.active { left: 0; }
     .sidebar h2 {color: #38bdf8;margin-top: 0;font-size: 18px;border-bottom: 1px solid #38bdf8;padding-bottom: 8px;}
@@ -163,53 +164,42 @@
 
     .hidden { display:none }
 
-    /* --- Responsive styles --- */
-    @media screen and (max-width: 600px) {
+    /* --------- Responsive Sidebar for Mobile --------- */
+    @media (max-width: 600px) {
+      .sidebar {
+        width: 82vw;
+        min-width: 0;
+        left: -100vw;
+        padding: 16px 12px 24px 12px;
+        border-right-width: 3px;
+      }
+      .sidebar.active {
+        left: 0;
+        box-shadow: 2px 0 25px #38bdf8a1;
+      }
+      #menuBtn {
+        top: 10px;
+        left: 10px;
+        padding: 7px 10px;
+        font-size: 20px;
+      }
+      .sidebar h2 { font-size: 16px; padding-bottom: 6px; }
+      .sidebar a { font-size: 15px; padding: 9px 6px; margin: 6px 0; }
       .card {
         width: 98vw;
         max-width: 98vw;
-        max-height: 97vh;
-        padding: 12px 4vw;
-        font-size: 15px;
+        padding: 13px 6px;
       }
-      h1 { font-size: 18px; }
-      #eid { font-size: 16px; padding: 10px;}
+    }
+    @media (max-width: 400px) {
       .sidebar {
-        width: 75vw;
-        min-width: 170px;
-        left: -75vw;
-        padding: 12px 10px;
+        width: 95vw;
+        padding: 10px 4px 16px 4px;
       }
-      .sidebar.active { left: 0; }
-      #menuBtn {
-        left: 4vw;
-        top: 7px;
-        font-size: 20px;
-        padding: 7px 10px;
-      }
-      .row button, .row a.btn {
-        min-width: 90px;
-        padding: 9px;
-        font-size: 13px;
-      }
-      .row { gap: 7px; }
-      .socials a { font-size: 30px;}
-    }
-
-    @media screen and (max-width: 400px) {
       .card {
-        padding: 8px 2vw;
-      }
-      #menuBtn {
-        left: 2vw;
-        padding: 6px 7px;
-      }
-    }
-
-    @media (max-height: 500px) {
-      .card {
-        max-height: 95vh;
-        padding: 10px 2vw;
+        width: 99vw;
+        max-width: 99vw;
+        padding: 7px 2px;
       }
     }
   </style>
