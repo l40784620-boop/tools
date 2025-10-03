@@ -4,10 +4,9 @@
   <meta charset="utf-8" />
   <title>Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  
   <style>
     body {
       font-family: 'Cairo', sans-serif;
@@ -303,7 +302,8 @@
     const panelCodes = document.getElementById('panel-codes');
     const panelOffice = document.getElementById('panel-office');
 
-    modeSel.addEventListener('change', () => {
+    // عند تغيير الاختيار (تفعيل الاكواد او الأوفيس)
+    modeSel.addEventListener('change', function() {
       if (modeSel.value === 'codes') {
         panelCodes.classList.remove('hidden');
         panelOffice.classList.add('hidden');
@@ -312,36 +312,40 @@
         panelOffice.classList.remove('hidden');
       }
     });
-
     function pickNewCode() {
       let c;
-      do { c = codes[Math.floor(Math.random() * codes.length)]; }
-      while (c === lastCode && codes.length > 1);
+      do {
+        c = codes[Math.floor(Math.random() * codes.length)];
+      } while (c === lastCode && codes.length > 1);
       return c;
     }
     function showCode(code) {
       lastCode = code;
       eidEl.textContent = code;
     }
-
-    changeBtn.addEventListener('click', () => showCode(pickNewCode()));
-    copyBtn.addEventListener('click', async () => {
+    changeBtn.addEventListener('click', function() {
+      showCode(pickNewCode());
+    });
+    copyBtn.addEventListener('click', async function() {
       if (!lastCode) return;
       await navigator.clipboard.writeText(lastCode);
       copyBtn.textContent = '✔ تم النسخ';
-      setTimeout(()=>copyBtn.textContent='نسخ', 1200);
+      setTimeout(function() {
+        copyBtn.textContent = 'نسخ';
+      }, 1200);
     });
-
-    document.addEventListener('DOMContentLoaded', () => showCode(pickNewCode()));
-
+    document.addEventListener('DOMContentLoaded', function() {
+      showCode(pickNewCode());
+    });
     const menuBtn = document.getElementById('menuBtn');
     const sidebar = document.getElementById('sidebar');
-    menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', function() {
       sidebar.classList.toggle('active');
     });
-
     function showSection(id) {
-      document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+      document.querySelectorAll('.section').forEach(function(sec) {
+        sec.classList.add('hidden');
+      });
       document.getElementById(id).classList.remove('hidden');
       sidebar.classList.remove('active');
     }
